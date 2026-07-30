@@ -1,4 +1,4 @@
-import { Lock, FileX, EyeOff, UserCheck, Scale, HeartHandshake, ShieldCheck } from 'lucide-react'
+import { Lock, FileX, EyeOff, UserCheck, Scale, HeartHandshake, ShieldCheck, Phone, Mail } from 'lucide-react'
 
 const protocols = [
   {
@@ -35,13 +35,13 @@ const protocols = [
 
 export default function PrivacyTrust() {
   return (
-    <section id="privacy" className="py-20 bg-[#F8FAFC]">
+    <section id="about" className="py-20 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="inline-block text-emerald-600 text-xs font-bold uppercase tracking-widest bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-full mb-5">
-            Privacy Guarantee
+            About Us
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-4 leading-tight">
             Confidentiality{' '}
@@ -59,14 +59,25 @@ export default function PrivacyTrust() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-14 items-center">
 
           {/* Left: Image Panel & Doctor Info */}
-          <div className="lg:col-span-5 relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 h-[400px] sm:h-[450px] w-full max-w-md mx-auto lg:mx-0 flex flex-col justify-end">
+          <div className="lg:col-span-5 relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 h-[500px] w-full max-w-md mx-auto lg:mx-0 flex flex-col justify-end group">
             <img
-              src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Chief Consultant Doctor at M.S.R Clinic"
-              className="absolute inset-0 w-full h-full object-cover object-top"
+              src="/doctor.jpg"
+              alt="Dr. Ramesh Kanna - Chief Consultant Doctor at M.S.R Clinic"
+              className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
             />
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/95 via-[#0F172A]/40 to-transparent" />
+            
+            {/* Doctor Details */}
+            <div className="relative z-10 p-6 md:p-8">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30 text-[10px] font-bold tracking-widest uppercase mb-3 backdrop-blur-sm">
+                Chief Physician
+              </div>
+              <h3 className="text-white text-2xl font-bold mb-1">Dr. Ramesh Kanna</h3>
+              <p className="text-teal-400 font-semibold text-sm mb-1">B.S.M.S., M.D.(Acu)</p>
+              <p className="text-slate-300 text-xs mb-4 max-w-[200px] leading-relaxed">Consultant Physician in Indian Medicine</p>
+              
+            </div>
           </div>
 
           {/* Right: Protocol grid (2 columns) */}

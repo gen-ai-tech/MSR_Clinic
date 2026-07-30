@@ -4,7 +4,7 @@ import { Menu, X, CalendarCheck, Cross } from 'lucide-react'
 const navLinks = [
   { label: 'Home', href: '#hero' },
   { label: 'Services', href: '#services' },
-  { label: 'Privacy', href: '#privacy' },
+  { label: 'About', href: '#about' },
   { label: 'Appointment', href: '#appointment' },
   { label: 'Location', href: '#location' },
 ]
