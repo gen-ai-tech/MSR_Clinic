@@ -159,7 +159,7 @@ export default function ServicesGrid({ onBooking }) {
   const [activeCard, setActiveCard] = useState(null)
 
   return (
-    <section id="services" className="py-10 sm:py-20 bg-[#F8FAFC]">
+    <section id="services" className="py-6 sm:py-20 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">

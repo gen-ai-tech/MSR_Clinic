@@ -134,7 +134,7 @@ export default function Navbar({ onBooking }) {
 
       {/* ── Mobile Drawer (slides in from right) ── */}
       <div
-        className={`fixed top-0 right-0 h-full w-1/2 z-[60] bg-[#0F172A] border-l border-white/10 shadow-2xl flex flex-col transition-transform duration-400 ease-in-out lg:hidden ${mobileOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed top-0 right-0 h-full w-[70%] sm:w-1/2 z-[60] bg-[#0F172A] border-l border-white/10 shadow-2xl flex flex-col transition-transform duration-400 ease-in-out lg:hidden ${mobileOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         role="dialog"
         aria-modal="true"

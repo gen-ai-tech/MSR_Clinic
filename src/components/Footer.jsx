@@ -71,13 +71,25 @@ export default function Footer({ onBooking }) {
                 <Mail className="w-4 h-4 text-teal-500 flex-shrink-0" />
                 <a href="mailto:rameshsakthivel68@gmail.com" className="hover:text-teal-400 transition-colors break-all">rameshsakthivel68@gmail.com</a>
               </div>
-              <div className="flex items-center gap-3">
-                <MessageCircle className="w-4 h-4 text-teal-500 flex-shrink-0" />
-                <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">WhatsApp Chat</a>
-              </div>
-              <div className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-teal-500 flex-shrink-0" />
-                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">Get Directions</a>
+              <div className="flex gap-3.5 pt-2">
+                <a
+                  href={WA_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-emerald-600 hover:scale-105 flex items-center justify-center text-slate-300 hover:text-white transition-all duration-300 shadow-lg border border-slate-700/50"
+                  title="WhatsApp Chat"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                </a>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-sky-500 hover:scale-105 flex items-center justify-center text-slate-300 hover:text-white transition-all duration-300 shadow-lg border border-slate-700/50"
+                  title="Get Directions"
+                >
+                  <MapPin className="w-5 h-5" />
+                </a>
               </div>
             </div>
           </div>
