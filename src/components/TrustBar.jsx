@@ -43,14 +43,14 @@ export default function TrustBar() {
           {badges.map(({ icon: Icon, title, subtitle, color, border, iconColor }) => (
             <div
               key={title}
-              className={`bg-gradient-to-br ${color} border ${border} rounded-2xl p-4 flex items-center gap-3 hover:scale-105 transition-transform duration-300`}
+              className={`bg-gradient-to-br ${color} border ${border} rounded-2xl p-3 sm:p-4 flex flex-col sm:flex-row items-center text-center sm:text-left gap-2 sm:gap-3 hover:scale-105 transition-transform duration-300`}
             >
-              <div className={`w-10 h-10 rounded-xl bg-white/8 flex items-center justify-center flex-shrink-0`}>
-                <Icon className={`w-5 h-5 ${iconColor}`} strokeWidth={1.8} />
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/8 flex items-center justify-center flex-shrink-0`}>
+                <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${iconColor}`} strokeWidth={1.8} />
               </div>
-              <div>
-                <div className="text-white font-semibold text-sm leading-tight">{title}</div>
-                <div className="text-slate-400 text-xs mt-0.5 leading-tight">{subtitle}</div>
+              <div className="flex-1 min-w-0">
+                <div className="text-white font-semibold text-xs sm:text-sm leading-tight truncate sm:whitespace-normal">{title}</div>
+                <div className="text-slate-400 text-[10px] sm:text-xs mt-1 leading-tight line-clamp-2 sm:line-clamp-none">{subtitle}</div>
               </div>
             </div>
           ))}

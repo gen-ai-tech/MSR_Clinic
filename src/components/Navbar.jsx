@@ -103,8 +103,8 @@ export default function Navbar({ onBooking }) {
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
               <button
-                onClick={() => onBooking()}
-                className="btn-shimmer text-white font-semibold px-5 py-2.5 rounded-xl text-sm shadow-lg shadow-teal-900/30 flex items-center gap-2"
+                onClick={() => handleNavClick('#appointment')}
+                className="btn-shimmer text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-lg flex items-center gap-2 hover:shadow-teal-500/25 transition-all w-max"
               >
                 <CalendarCheck className="w-4 h-4" />
                 Book Appointment
@@ -179,7 +179,7 @@ export default function Navbar({ onBooking }) {
             {/* Book CTA */}
             <div className="mt-4 pt-4 border-t border-white/10 px-2">
               <button
-                onClick={() => { setMobileOpen(false); onBooking() }}
+                onClick={() => handleNavClick('#appointment')}
                 className="btn-shimmer text-white font-bold py-3 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 w-full shadow-lg"
               >
                 <CalendarCheck className="w-4 h-4" />

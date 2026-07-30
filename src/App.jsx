@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TrustBar from './components/TrustBar'
@@ -8,16 +7,14 @@ import BookAppointment from './components/BookAppointment'
 import Testimonials from './components/Testimonials'
 import LocationSection from './components/LocationSection'
 import Footer from './components/Footer'
-import BookingModal from './components/BookingModal'
 import FloatingActions from './components/FloatingActions'
 
 export default function App() {
-  const [isBookingOpen, setIsBookingOpen] = useState(false)
-  const [preSelectedDept, setPreSelectedDept] = useState('')
-
   const openBooking = (dept = '') => {
-    setPreSelectedDept(dept)
-    setIsBookingOpen(true)
+    // If we want to pre-select department in the future, we can use state or URL params.
+    // For now, scroll to the booking section directly.
+    const el = document.querySelector('#appointment')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -53,11 +50,6 @@ export default function App() {
 
       <Footer onBooking={openBooking} />
 
-      <BookingModal
-        isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
-        preSelectedDept={preSelectedDept}
-      />
       <FloatingActions />
     </div>
   )

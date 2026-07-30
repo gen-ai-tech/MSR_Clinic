@@ -41,6 +41,7 @@ function Field({ label, icon: Icon, children, error }) {
 export default function BookAppointment() {
   const [form, setForm] = useState({
     name: '',
+    gender: '',
     phone: '',
     date: '',
     dept: '',
@@ -60,6 +61,7 @@ export default function BookAppointment() {
     if (!form.name.trim()) errs.name = 'Your name is required'
     if (!/^[6-9]\d{9}$/.test(form.phone.replace(/\s/g, '')))
       errs.phone = 'Enter a valid 10-digit Indian mobile number'
+    if (!form.gender) errs.gender = 'Please select your gender'
     if (!form.dept) errs.dept = 'Please select a department'
     return errs
   }
@@ -73,7 +75,7 @@ export default function BookAppointment() {
     setTimeout(() => {
       const msg = encodeURIComponent(
         `Hello M.S.R Clinic,\n\nI would like to book a confidential appointment.\n\n` +
-        `Name: ${form.name}\nPhone: ${form.phone}\nDepartment: ${form.dept}\nPreferred Date: ${form.date || 'Flexible'}\n` +
+        `Name: ${form.name}\nGender: ${form.gender}\nPhone: ${form.phone}\nDepartment: ${form.dept}\nPreferred Date: ${form.date || 'Flexible'}\n` +
         `Note: ${form.note || 'None'}\n\nPlease confirm my appointment. Thank you.`
       )
       window.open(WA_BASE + msg, '_blank')
@@ -83,7 +85,7 @@ export default function BookAppointment() {
   }
 
   const reset = () => {
-    setForm({ name: '', phone: '', date: '', dept: '', note: '' })
+    setForm({ name: '', gender: '', phone: '', date: '', dept: '', note: '' })
     setErrors({})
     setSubmitted(false)
   }
@@ -183,6 +185,32 @@ export default function BookAppointment() {
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-slate-700 text-sm font-semibold mb-1.5">
+                          Gender *
+                        </label>
+                        <div
+                          className={`relative border-2 rounded-xl transition-all ${errors.gender ? 'border-rose-400 bg-rose-50' : 'border-slate-200 bg-white focus-within:border-teal-400'}`}
+                        >
+                          <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+                          <select
+                            value={form.gender}
+                            onChange={update('gender')}
+                            className="w-full py-3 pl-9 pr-4 bg-transparent text-slate-700 text-sm outline-none appearance-none cursor-pointer"
+                          >
+                            <option value="">Select gender...</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                          </select>
+                        </div>
+                        {errors.gender && (
+                          <p className="mt-1 text-xs text-rose-500 flex items-center gap-1">
+                            <AlertCircle className="w-3 h-3" /> {errors.gender}
+                          </p>
+                        )}
+                      </div>
+
                       <Field label="Preferred Date" icon={Calendar} error={errors.date}>
                         <input
                           type="date"
@@ -192,8 +220,9 @@ export default function BookAppointment() {
                           className="flex-1 py-3 pl-3 pr-4 bg-transparent text-slate-700 text-sm outline-none"
                         />
                       </Field>
+                    </div>
 
-                      <div>
+                    <div>
                         <label className="block text-slate-700 text-sm font-semibold mb-1.5">
                           Department / Specialty *
                         </label>
@@ -219,8 +248,6 @@ export default function BookAppointment() {
                           </p>
                         )}
                       </div>
-                    </div>
-
                     <div>
                       <label className="block text-slate-700 text-sm font-semibold mb-1.5">
                         Any Doubts and Queries (Optional)
