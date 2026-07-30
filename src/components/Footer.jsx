@@ -7,7 +7,7 @@ export default function Footer({ onBooking }) {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#0F172A] text-white pb-16 md:pb-0">
+    <footer className="bg-[#0F172A] text-white">
 
 
       {/* Main footer grid */}
