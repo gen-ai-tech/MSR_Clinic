@@ -3,15 +3,32 @@ import { Menu, X, CalendarCheck, Cross } from 'lucide-react'
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
-  { label: 'Services', href: '#services' },
   { label: 'About', href: '#about' },
-  { label: 'Appointment', href: '#appointment' },
+  { label: 'Services', href: '#services' },
+  { label: 'Reviews', href: '#reviews' },
   { label: 'Location', href: '#location' },
 ]
 
 export default function Navbar({ onBooking }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('hero')
+
+  // Track which section is in view for active-link highlighting
+  useEffect(() => {
+    const sectionIds = ['hero', 'about', 'services', 'reviews', 'location']
+    const observers = sectionIds.map((id) => {
+      const el = document.getElementById(id)
+      if (!el) return null
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id) },
+        { threshold: 0.3 }
+      )
+      obs.observe(el)
+      return obs
+    })
+    return () => observers.forEach((o) => o?.disconnect())
+  }, [])
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60)
@@ -25,18 +42,36 @@ export default function Navbar({ onBooking }) {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
+  const isActive = (href) => {
+    const id = href.replace('#', '')
+    if (id === 'location') return activeSection === 'location'
+    return activeSection === id
+  }
+
+  const handleNavClick = (href) => {
+    setMobileOpen(false)
+    const el = document.querySelector(href)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
           ? 'bg-[#0F172A]/95 backdrop-blur-xl shadow-2xl shadow-black/20 border-b border-white/5'
           : 'bg-[#0F172A]/40 backdrop-blur-md shadow-md border-b border-white/5'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-18">
+
             {/* Logo */}
-            <a href="#" className="flex items-center gap-3 group flex-shrink-0" aria-label="M.S.R Clinic">
+            <a
+              href="#hero"
+              onClick={(e) => { e.preventDefault(); handleNavClick('#hero') }}
+              className="flex items-center gap-3 group flex-shrink-0"
+              aria-label="M.S.R Clinic"
+            >
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center shadow-lg shadow-teal-900/40 group-hover:scale-110 transition-transform duration-300">
                 <Cross className="w-5 h-5 text-white" strokeWidth={2.5} />
               </div>
@@ -46,29 +81,34 @@ export default function Navbar({ onBooking }) {
               </div>
             </a>
 
-            {/* Desktop nav — pushed toward the right with ml-auto */}
+            {/* Desktop nav */}
             <nav className="hidden lg:flex items-center gap-7 ml-auto mr-8" aria-label="Main navigation">
               {navLinks.map((l) => (
                 <a
-                  key={l.href}
+                  key={l.href + l.label}
                   href={l.href}
-                  className="text-slate-300 hover:text-white text-sm font-medium transition-colors duration-200 relative group whitespace-nowrap"
+                  onClick={(e) => { e.preventDefault(); handleNavClick(l.href) }}
+                  className={`text-sm font-medium transition-colors duration-200 relative group whitespace-nowrap ${isActive(l.href)
+                      ? 'text-teal-400'
+                      : 'text-slate-300 hover:text-white'
+                    }`}
                 >
                   {l.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-400 group-hover:w-full transition-all duration-300 rounded-full" />
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-teal-400 rounded-full transition-all duration-300 ${isActive(l.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`} />
                 </a>
               ))}
             </nav>
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-              <a
-                href="#appointment"
+              <button
+                onClick={() => onBooking()}
                 className="btn-shimmer text-white font-semibold px-5 py-2.5 rounded-xl text-sm shadow-lg shadow-teal-900/30 flex items-center gap-2"
               >
                 <CalendarCheck className="w-4 h-4" />
                 Book Appointment
-              </a>
+              </button>
             </div>
 
             {/* Mobile hamburger */}
@@ -84,21 +124,18 @@ export default function Navbar({ onBooking }) {
         </div>
       </header>
 
-      {/* ── Mobile Slide-in Drawer (right → left) ── */}
-      {/* Backdrop */}
+      {/* ── Mobile Backdrop ── */}
       <div
-        className={`fixed inset-0 z-[55] bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
-          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed inset-0 z-[55] bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
         onClick={() => setMobileOpen(false)}
         aria-hidden="true"
       />
 
-      {/* Drawer panel — slides in from the right */}
+      {/* ── Mobile Drawer (slides in from right) ── */}
       <div
-        className={`fixed top-0 right-0 h-full w-1/2 z-[60] bg-[#0F172A] border-l border-white/10 shadow-2xl flex flex-col transition-transform duration-400 ease-in-out lg:hidden ${
-          mobileOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed top-0 right-0 h-full w-1/2 z-[60] bg-[#0F172A] border-l border-white/10 shadow-2xl flex flex-col transition-transform duration-400 ease-in-out lg:hidden ${mobileOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
@@ -120,31 +157,34 @@ export default function Navbar({ onBooking }) {
           </button>
         </div>
 
-        {/* Nav links and CTA */}
+        {/* Nav links */}
         <div className="flex-1 overflow-y-auto">
           <nav className="px-3 py-6 flex flex-col gap-1" aria-label="Mobile navigation">
             {navLinks.map((l) => (
               <a
-                key={l.href}
+                key={l.href + l.label}
                 href={l.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-slate-300 hover:text-white hover:bg-white/8 font-medium py-3 px-3 rounded-xl transition-all text-sm flex items-center gap-3 group"
+                onClick={(e) => { e.preventDefault(); handleNavClick(l.href) }}
+                className={`font-medium py-3 px-3 rounded-xl transition-all text-sm flex items-center gap-3 group ${isActive(l.href)
+                    ? 'text-teal-400 bg-teal-500/10'
+                    : 'text-slate-300 hover:text-white hover:bg-white/8'
+                  }`}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className={`w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0 transition-opacity ${isActive(l.href) ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`} />
                 {l.label}
               </a>
             ))}
 
-            {/* CTA directly below Location */}
+            {/* Book CTA */}
             <div className="mt-4 pt-4 border-t border-white/10 px-2">
-              <a
-                href="#appointment"
-                onClick={() => setMobileOpen(false)}
+              <button
+                onClick={() => { setMobileOpen(false); onBooking() }}
                 className="btn-shimmer text-white font-bold py-3 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 w-full shadow-lg"
               >
                 <CalendarCheck className="w-4 h-4" />
                 Book Appt.
-              </a>
+              </button>
             </div>
           </nav>
         </div>

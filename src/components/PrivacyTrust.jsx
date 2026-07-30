@@ -1,4 +1,4 @@
-import { Lock, FileX, EyeOff, UserCheck, Scale, HeartHandshake, ShieldCheck, Phone, Mail } from 'lucide-react'
+import { Lock, FileX, EyeOff, UserCheck, Scale, HeartHandshake } from 'lucide-react'
 
 const protocols = [
   {
@@ -33,6 +33,29 @@ const protocols = [
   },
 ]
 
+const clinicPhotos = [
+  {
+    src: '/clinic-hero-2.png',
+    title: 'Reception & Entrance',
+    description: 'Warm and welcoming entry area maintaining privacy guidelines.',
+  },
+  {
+    src: '/clinic-office.jpg',
+    title: 'Consultation Room',
+    description: 'Private workspace for one-on-one medical consulting.',
+  },
+  {
+    src: '/treatment-board.jpg',
+    title: 'Treatment Guidelines',
+    description: 'Detailed board listing all mental, sexual, and skin wellness programs.',
+  },
+  {
+    src: '/results-board.jpg',
+    title: 'Clinical References',
+    description: 'Dermatology case board illustrating patient recovery paths.',
+  },
+]
+
 export default function PrivacyTrust() {
   return (
     <section id="about" className="py-20 bg-[#F8FAFC]">
@@ -55,11 +78,11 @@ export default function PrivacyTrust() {
           </p>
         </div>
 
-        {/* Two-column: Image left + Cards right */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-14 items-center">
+        {/* Two-column: Doctor Image left + Cards right */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-20 items-stretch">
 
-          {/* Left: Image Panel & Doctor Info */}
-          <div className="lg:col-span-5 relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 h-[500px] w-full max-w-md mx-auto lg:mx-0 flex flex-col justify-end group">
+          {/* Left: Chief Physician Card */}
+          <div className="lg:col-span-5 relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 h-[520px] w-full max-w-md mx-auto lg:mx-0 flex flex-col justify-end group bg-[#0F172A]">
             <img
               src="/doctor.jpg"
               alt="Dr. Ramesh Kanna - Chief Consultant Doctor at M.S.R Clinic"
@@ -67,7 +90,7 @@ export default function PrivacyTrust() {
             />
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/95 via-[#0F172A]/40 to-transparent" />
-            
+
             {/* Doctor Details */}
             <div className="relative z-10 p-6 md:p-8">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30 text-[10px] font-bold tracking-widest uppercase mb-3 backdrop-blur-sm">
@@ -75,24 +98,64 @@ export default function PrivacyTrust() {
               </div>
               <h3 className="text-white text-2xl font-bold mb-1">Dr. Ramesh Kanna</h3>
               <p className="text-teal-400 font-semibold text-sm mb-1">B.S.M.S., M.D.(Acu)</p>
-              <p className="text-slate-300 text-xs mb-4 max-w-[200px] leading-relaxed">Consultant Physician in Indian Medicine</p>
-              
+              <p className="text-slate-300 text-xs mb-2 leading-relaxed">Consultant Physician in Indian Medicine</p>
+              <p className="text-slate-400 text-[11px] leading-relaxed">
+                Expert specialty consultation with completely private, judgment-free clinical guidance.
+              </p>
             </div>
           </div>
 
-          {/* Right: Protocol grid (2 columns) */}
+          {/* Right: Protocol grid */}
           <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4 lg:gap-5">
             {protocols.map(({ icon: Icon, title, description }) => (
               <div
                 key={title}
-                className="group bg-white hover:bg-gradient-to-br hover:from-teal-50/70 hover:to-emerald-50/50 border border-slate-100 hover:border-teal-200 rounded-2xl p-5 transition-all duration-300 hover:shadow-lg hover:shadow-teal-50 flex flex-col gap-3"
+                className="group bg-white hover:bg-gradient-to-br hover:from-teal-50/70 hover:to-emerald-50/50 border border-slate-100 hover:border-teal-200 rounded-2xl p-5 transition-all duration-300 hover:shadow-lg hover:shadow-teal-50 flex flex-col justify-center"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center shadow-md shadow-teal-200 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center shadow-md shadow-teal-200 group-hover:scale-110 transition-transform duration-300 flex-shrink-0 mb-3">
                   <Icon className="w-5 h-5 text-white" strokeWidth={1.8} />
                 </div>
                 <div>
                   <h3 className="text-[#1E293B] font-bold text-sm mb-1 leading-tight">{title}</h3>
                   <p className="text-slate-500 text-xs leading-relaxed">{description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dedicated Clinic Gallery Container */}
+        <div className="mb-20">
+          <div className="text-center mb-10">
+            <span className="inline-block text-teal-600 text-xs font-bold uppercase tracking-widest bg-teal-50 border border-teal-200 px-4 py-2 rounded-full mb-4">
+              clinic gallery
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#0F172A] mb-3">
+              Clinic Gallery
+            </h3>
+            <p className="text-slate-500 text-sm max-w-xl mx-auto">
+              A brief tour of our consultation space, registry guides, and clinical reference boards in Salem.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {clinicPhotos.map((photo, index) => (
+              <div
+                key={index}
+                className="group bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-md hover:border-slate-200 transition-all duration-300"
+              >
+                <div className="relative h-48 overflow-hidden bg-slate-900">
+                  <img
+                    src={photo.src}
+                    alt={photo.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="p-5">
+                  <h4 className="font-bold text-[#1E293B] text-sm mb-1">{photo.title}</h4>
+                  <p className="text-slate-500 text-xs leading-relaxed">{photo.description}</p>
                 </div>
               </div>
             ))}

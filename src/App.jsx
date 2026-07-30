@@ -23,14 +23,36 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] font-sans overflow-x-hidden w-full relative">
       <Navbar onBooking={openBooking} />
-      <Hero onBooking={openBooking} />
+
+      {/* ── Sections ── */}
+      <section id="hero">
+        <Hero onBooking={openBooking} />
+      </section>
+
       <TrustBar />
-      <ServicesGrid onBooking={openBooking} />
-      <PrivacyTrust />
-      <BookAppointment />
-      <Testimonials />
-      <LocationSection onBooking={openBooking} />
+
+      <section id="about">
+        <PrivacyTrust />
+      </section>
+
+      <section id="services">
+        <ServicesGrid onBooking={openBooking} />
+      </section>
+
+      <section id="reviews">
+        <Testimonials />
+      </section>
+
+      <section id="appointment">
+        <BookAppointment />
+      </section>
+
+      <section id="location">
+        <LocationSection onBooking={openBooking} />
+      </section>
+
       <Footer onBooking={openBooking} />
+
       <BookingModal
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}

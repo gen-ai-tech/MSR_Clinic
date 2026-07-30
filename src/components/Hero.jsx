@@ -80,13 +80,13 @@ export default function Hero({ onBooking }) {
             </p>
 
             {/* Primary CTA */}
-            <div className="flex justify-center lg:justify-start mb-8">
+            <div className="flex justify-center lg:justify-start mb-8 w-full sm:w-auto">
               <button
                 onClick={() => onBooking()}
-                className="btn-shimmer pulse-ring text-white font-bold px-8 py-4 rounded-2xl text-base shadow-xl shadow-teal-900/40 flex items-center justify-center gap-2.5"
+                className="btn-shimmer pulse-ring text-white font-bold px-6 py-3.5 rounded-2xl text-sm sm:text-base shadow-xl shadow-teal-900/40 flex items-center justify-center gap-2.5 w-full sm:w-auto"
               >
-                <CalendarCheck className="w-5 h-5" />
-                Book Confidential Appointment
+                <CalendarCheck className="w-4 h-4 sm:w-5 sm:h-5" />
+                Book Appointment
               </button>
             </div>
 

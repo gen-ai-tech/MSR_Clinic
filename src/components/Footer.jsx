@@ -1,4 +1,4 @@
-import { Cross, Phone, MapPin, MessageCircle, CalendarCheck, ArrowRight } from 'lucide-react'
+import { Cross, Phone, MapPin, MessageCircle, CalendarCheck, ArrowRight, Mail } from 'lucide-react'
 
 const WA_URL = 'https://wa.me/919842766090?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment.'
 const MAPS_URL = 'https://www.google.com/maps/place/M.S.R+Clinic+-+Skin+%26+Venereal+Clinic%2FSexology+Clinic%2FAlcohol+De-Addiction+Centre%2FPsychiatrist+Clinic/@11.6634721,78.1449644,853m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3babf16b2517568f:0x5e6d0215e50b1f6f!8m2!3d11.6634721!4d78.1475393!16s%2Fg%2F11n153_ld9'
@@ -31,25 +31,25 @@ export default function Footer({ onBooking }) {
 
           </div>
 
-          {/* Specialties */}
+          {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Specialties</h4>
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-3 text-slate-400 text-sm">
               {[
-                'Dermatology & Venereology',
-                'Psychiatry & Mental Health',
-                'Sexology & Men\'s Health',
-                'Alcohol De-Addiction',
-                'Discreet Tele-Consultations',
-              ].map((item) => (
-                <li key={item}>
-                  <button
-                    onClick={() => onBooking(item)}
-                    className="flex items-center gap-2 hover:text-teal-400 transition-colors text-left"
+                { label: 'Home',        href: '#hero' },
+                { label: 'About Us',    href: '#about' },
+                { label: 'Services',    href: '#services' },
+                { label: 'Appointment', href: '#appointment' },
+                { label: 'Location',    href: '#location' },
+              ].map(({ label, href }) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    className="flex items-center gap-2 hover:text-teal-400 transition-colors"
                   >
                     <ArrowRight className="w-3.5 h-3.5 text-teal-500 flex-shrink-0" />
-                    {item}
-                  </button>
+                    {label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -66,6 +66,10 @@ export default function Footer({ onBooking }) {
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-teal-500 flex-shrink-0" />
                 <a href="tel:09842766090" className="hover:text-teal-400 transition-colors font-semibold">098427 66090</a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-teal-500 flex-shrink-0" />
+                <a href="mailto:rameshsakthivel68@gmail.com" className="hover:text-teal-400 transition-colors break-all">rameshsakthivel68@gmail.com</a>
               </div>
               <div className="flex items-center gap-3">
                 <MessageCircle className="w-4 h-4 text-teal-500 flex-shrink-0" />

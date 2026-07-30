@@ -1,87 +1,106 @@
 import { useState } from 'react'
 import {
-  Microscope, Brain, HeartHandshake, Leaf, ArrowRight
+  Microscope, Shield, HeartHandshake, Brain, Leaf, ArrowRight
 } from 'lucide-react'
 
 const services = [
   {
-    id: 'dermatology',
+    id: 'skin-clinic',
     icon: Microscope,
-    title: 'Dermatology & Venereology',
-    tagline: 'Skin & Venereal Health',
-    description: 'Comprehensive skin care and venereal health services - delivered in a confidential, judgment-free clinic environment.',
+    title: 'Skin Clinic',
+    tagline: 'Dermatology Care',
+    description: 'Advanced dermatological treatments for all skin conditions, delivered with expertise and personalised care.',
     color: 'from-sky-500 to-cyan-600',
     lightColor: 'from-sky-50 to-cyan-50',
     borderColor: 'border-sky-200',
     textColor: 'text-sky-600',
     bgAccent: 'bg-sky-500',
     conditions: [
-      'Acne, Eczema & Psoriasis',
-      'STI / STD Screening & Treatment',
-      'Fungal & Bacterial Infections',
-      'Hair Loss & Scalp Disorders',
-      'Skin Allergies & Dermatitis',
-      'Wart & Mole Removal',
+      'Skin allergies',
+      'Acne & pimples',
+      'Eczema',
+      'Psoriasis',
+      'Fungal infections',
+      'Hair & scalp disorders',
+      'Pigmentation treatment',
+    ],
+  },
+  {
+    id: 'venereal-disease',
+    icon: Shield,
+    title: 'Venereal Disease Clinic',
+    tagline: 'Confidential STD Care',
+    description: 'Discreet, professional diagnosis and treatment of sexually transmitted infections in a safe, judgment-free environment.',
+    color: 'from-rose-500 to-pink-600',
+    lightColor: 'from-rose-50 to-pink-50',
+    borderColor: 'border-rose-200',
+    textColor: 'text-rose-600',
+    bgAccent: 'bg-rose-500',
+    conditions: [
+      'STD diagnosis',
+      'STD treatment',
+      'Infection management',
+      'Confidential consultation',
     ],
   },
   {
     id: 'sexology',
     icon: HeartHandshake,
-    title: 'Advanced Sexology',
-    tagline: 'Confidential Sexual Wellness',
-    description: 'Discreet, evidence-based sexual health consultations. A safe, private space to address sensitive concerns with expert clinical guidance.',
+    title: 'Sexology Clinic',
+    tagline: 'Sexual Wellness',
+    description: 'Evidence-based sexual health consultations for both men and women — a safe, private space for sensitive concerns.',
     color: 'from-violet-500 to-purple-600',
     lightColor: 'from-violet-50 to-purple-50',
     borderColor: 'border-violet-200',
     textColor: 'text-violet-600',
     bgAccent: 'bg-violet-500',
     conditions: [
-      'Erectile Dysfunction',
-      'Premature Ejaculation',
-      'Low Libido & Testosterone Issues',
-      'Sexual Anxiety & Counseling',
-      'Hormone & Reproductive Health',
-      'Inclusive Sexual Health Care',
-    ],
-  },
-  {
-    id: 'deaddiction',
-    icon: Leaf,
-    title: 'Alcohol De-Addiction',
-    tagline: 'Recovery & Rehabilitation',
-    description: 'Medically supervised detox and holistic recovery programmes. Treating addiction as a medical condition - with compassion, not shame.',
-    color: 'from-emerald-500 to-green-600',
-    lightColor: 'from-emerald-50 to-green-50',
-    borderColor: 'border-emerald-200',
-    textColor: 'text-emerald-600',
-    bgAccent: 'bg-emerald-500',
-    conditions: [
-      'Medical Alcohol Detoxification',
-      'Substance Use Counseling',
-      'Nicotine & Tobacco De-Addiction',
-      'Relapse Prevention Planning',
-      'Family Support & Guidance',
-      'Motivational Interviewing',
+      'Male sexual health',
+      'Female sexual health',
+      'Erectile dysfunction',
+      'Premature ejaculation',
+      'Low libido',
+      'Marital counseling',
     ],
   },
   {
     id: 'psychiatry',
     icon: Brain,
-    title: 'Psychiatry & Mental Health',
-    tagline: 'Compassionate Mental Wellness',
-    description: 'Holistic psychiatric care combining medication, therapy, and counseling - because mental health is health.',
+    title: 'Psychiatrist Clinic',
+    tagline: 'Mental Wellness',
+    description: 'Holistic psychiatric care combining medication, therapy, and counseling — because mental health is health.',
     color: 'from-teal-500 to-teal-700',
     lightColor: 'from-teal-50 to-cyan-50',
     borderColor: 'border-teal-200',
     textColor: 'text-teal-600',
     bgAccent: 'bg-teal-500',
     conditions: [
-      'Depression & Anxiety Disorders',
-      'Bipolar & Mood Disorders',
-      'OCD & PTSD Treatment',
-      'Schizophrenia Management',
-      'Sleep Disorders & Insomnia',
-      'Stress & Burnout Recovery',
+      'Depression',
+      'Anxiety',
+      'Stress management',
+      'Panic attacks',
+      'OCD',
+      'Bipolar disorder',
+      'Sleep disorders',
+    ],
+  },
+  {
+    id: 'deaddiction',
+    icon: Leaf,
+    title: 'Alcohol De-Addiction Centre',
+    tagline: 'Recovery & Rehabilitation',
+    description: 'Medically supervised recovery programmes treating addiction with compassion, dignity and evidence-based support.',
+    color: 'from-emerald-500 to-green-600',
+    lightColor: 'from-emerald-50 to-green-50',
+    borderColor: 'border-emerald-200',
+    textColor: 'text-emerald-600',
+    bgAccent: 'bg-emerald-500',
+    conditions: [
+      'Alcohol addiction treatment',
+      'Counseling',
+      'Rehabilitation support',
+      'Family counseling',
+      'Relapse prevention',
     ],
   },
 ]
@@ -113,7 +132,7 @@ function ServiceCard({ service, onBooking, isActive, onHover, onLeave }) {
         <h3 className="text-[#1E293B] font-bold text-base sm:text-xl mb-1.5 sm:mb-2 leading-tight">{service.title}</h3>
         <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5">{service.description}</p>
 
-        {/* Conditions list — fixed 6 items per card */}
+        {/* Conditions list */}
         <div className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6 flex-1">
           {service.conditions.map((c) => (
             <div key={c} className="flex items-center gap-2 sm:gap-2.5 text-slate-600 text-xs sm:text-sm">
@@ -154,13 +173,25 @@ export default function ServicesGrid({ onBooking }) {
             </span>
           </h2>
           <p className="text-slate-500 text-lg leading-relaxed">
-            Expert medical care across four critical specialties - always delivered with compassion, clinical excellence, and absolute discretion.
+            Expert medical care across five critical specialties — always delivered with compassion, clinical excellence, and absolute discretion.
           </p>
         </div>
 
-        {/* Cards Grid — items-stretch ensures equal height */}
-        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-6 items-stretch">
-          {services.map((s) => (
+        {/* Cards Grid — 3 on top row, 2 centered on bottom */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 items-stretch mb-3 sm:mb-6">
+          {services.slice(0, 3).map((s) => (
+            <ServiceCard
+              key={s.id}
+              service={s}
+              onBooking={onBooking}
+              isActive={activeCard === s.id}
+              onHover={() => setActiveCard(s.id)}
+              onLeave={() => setActiveCard(null)}
+            />
+          ))}
+        </div>
+        <div className="grid sm:grid-cols-2 gap-3 sm:gap-6 items-stretch max-w-2xl lg:max-w-3xl mx-auto">
+          {services.slice(3).map((s) => (
             <ServiceCard
               key={s.id}
               service={s}
