@@ -121,7 +121,6 @@ function MobileCard({ service, onBooking, isOpen, onToggle }) {
       {/* Header row — always visible */}
       <div
         className="flex items-center gap-3 px-4 py-3 cursor-pointer select-none"
-        onTouchStart={(e) => { e.preventDefault(); onToggle() }}
         onClick={onToggle}
       >
         {/* Icon */}
