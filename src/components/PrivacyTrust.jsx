@@ -100,7 +100,7 @@ export default function PrivacyTrust() {
               <p className="text-teal-400 font-semibold text-sm mb-1">B.S.M.S., M.D.(Acu)</p>
               <p className="text-slate-300 text-xs mb-2 leading-relaxed">Consultant Physician in Indian Medicine</p>
               <p className="text-slate-400 text-[11px] leading-relaxed">
-                Expert specialty consultation with completely private, judgment-free clinical guidance.
+                Expert specialty consultation with completely private, judgment free clinical guidance.
               </p>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function PrivacyTrust() {
                 Everything you share with us stays<br className="hidden md:block" />{' '}
                 <span className="text-teal-400">strictly within these walls.</span>
               </h3>
-              <p className="text-slate-300 text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
+              <p className="text-slate-300 text-base leading-relaxed max-w-xl mx-auto lg:mx-0 text-justify">
                 Whether you're seeking help for addiction, exploring sexual health questions, or addressing mental health concerns - your visit is protected by medical professional confidentiality laws and our own comprehensive privacy protocols.
               </p>
             </div>

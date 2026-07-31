@@ -91,7 +91,7 @@ export default function BookAppointment() {
   }
 
   return (
-    <section id="appointment" className="py-24 bg-[#F8FAFC] relative overflow-hidden">
+    <section id="appointment" className="py-10 sm:py-24 bg-[#F8FAFC] relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-teal-100/40 blur-3xl -translate-y-1/2 translate-x-1/4" />
@@ -101,7 +101,7 @@ export default function BookAppointment() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section header */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-8 sm:mb-14">
           <span className="inline-block text-teal-600 text-xs font-bold uppercase tracking-widest bg-teal-50 border border-teal-200 px-4 py-2 rounded-full mb-5">
             Online Booking
           </span>
