@@ -67,8 +67,8 @@ export default function LocationSection({ onBooking }) {
                 </div>
                 <div>
                   <h3 className="text-[#1E293B] font-bold text-lg mb-0.5">Booking & Emergency</h3>
-                  <a href="tel:09842766090" className="text-2xl font-bold text-teal-600 hover:text-teal-700 transition-colors tracking-wide">
-                    098427 66090
+                  <a href="tel:9842766090" className="text-2xl font-bold text-teal-600 hover:text-teal-700 transition-colors tracking-wide">
+                    98427 66090
                   </a>
                   <p className="text-slate-400 text-xs mt-1">Tap to call - available during clinic hours</p>
                 </div>
@@ -83,8 +83,8 @@ export default function LocationSection({ onBooking }) {
               </div>
               <div className="space-y-3">
                 {[
-                  { day: 'Mon – Sat (Morning)', time: '9:00 AM – 1:00 PM', active: true },
-                  { day: 'Mon – Sat (Evening)', time: '4:00 PM – 8:00 PM', active: true },
+                  { day: 'Mon - Sat (Morning)', time: '9:00 AM - 1:00 PM', active: true },
+                  { day: 'Mon - Sat (Evening)', time: '4:00 PM - 8:00 PM', active: true },
                   { day: 'Sunday', time: 'By Appointment Only', active: false },
                 ].map(({ day, time, active }) => (
                   <div key={day} className="flex justify-between items-center py-2.5 border-b border-slate-50 last:border-0">

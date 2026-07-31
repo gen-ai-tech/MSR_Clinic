@@ -26,7 +26,7 @@ export default function FloatingActions() {
             }`}
         >
           <a
-            href="tel:09842766090"
+            href="tel:9842766090"
             className="w-12 h-12 bg-teal-500 hover:bg-teal-400 text-white rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110"
             title="Call Us"
             onClick={() => setIsOpen(false)}
@@ -89,7 +89,7 @@ export default function FloatingActions() {
 
           {/* Call */}
           <a
-            href="tel:09842766090"
+            href="tel:9842766090"
             className="flex-1 flex flex-col items-center justify-center gap-1.5 py-3 text-teal-400 hover:text-white hover:bg-teal-600/30 transition-all duration-200 active:bg-teal-600/50"
           >
             <Phone className="w-5 h-5" />

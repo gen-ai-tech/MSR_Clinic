@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, CalendarCheck, Cross } from 'lucide-react'
+import { Menu, X, CalendarCheck } from 'lucide-react'
+import logoImg from '../assets/logo.jpeg'
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
@@ -72,9 +73,11 @@ export default function Navbar({ onBooking }) {
               className="flex items-center gap-3 group flex-shrink-0"
               aria-label="M.S.R Clinic"
             >
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center shadow-lg shadow-teal-900/40 group-hover:scale-110 transition-transform duration-300">
-                <Cross className="w-5 h-5 text-white" strokeWidth={2.5} />
-              </div>
+              <img
+                src={logoImg}
+                alt="M.S.R Clinic Logo"
+                className="h-10 w-auto rounded-lg object-contain group-hover:scale-110 transition-transform duration-300 shadow-md"
+              />
               <div>
                 <div className="text-white font-bold text-base tracking-wide leading-none">M.S.R Clinic</div>
                 <div className="text-teal-400 text-[10px] font-medium tracking-widest uppercase mt-0.5">Salem, Tamil Nadu</div>
@@ -89,8 +92,8 @@ export default function Navbar({ onBooking }) {
                   href={l.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(l.href) }}
                   className={`text-sm font-medium transition-colors duration-200 relative group whitespace-nowrap ${isActive(l.href)
-                      ? 'text-teal-400'
-                      : 'text-slate-300 hover:text-white'
+                    ? 'text-teal-400'
+                    : 'text-slate-300 hover:text-white'
                     }`}
                 >
                   {l.label}
@@ -143,9 +146,11 @@ export default function Navbar({ onBooking }) {
         {/* Drawer header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center">
-              <Cross className="w-4 h-4 text-white" strokeWidth={2.5} />
-            </div>
+            <img
+              src={logoImg}
+              alt="M.S.R Clinic Logo"
+              className="h-8 w-auto rounded-md object-contain"
+            />
             <span className="text-white font-bold text-sm tracking-wide">M.S.R Clinic</span>
           </div>
           <button
@@ -166,8 +171,8 @@ export default function Navbar({ onBooking }) {
                 href={l.href}
                 onClick={(e) => { e.preventDefault(); handleNavClick(l.href) }}
                 className={`font-medium py-3 px-3 rounded-xl transition-all text-sm flex items-center gap-3 group ${isActive(l.href)
-                    ? 'text-teal-400 bg-teal-500/10'
-                    : 'text-slate-300 hover:text-white hover:bg-white/8'
+                  ? 'text-teal-400 bg-teal-500/10'
+                  : 'text-slate-300 hover:text-white hover:bg-white/8'
                   }`}
               >
                 <span className={`w-1.5 h-1.5 rounded-full bg-teal-500 flex-shrink-0 transition-opacity ${isActive(l.href) ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'

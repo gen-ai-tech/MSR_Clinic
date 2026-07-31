@@ -144,11 +144,11 @@ export default function BookingModal({ isOpen, onClose, preSelectedDept }) {
               </p>
               <div className="flex flex-col gap-3">
                 <a
-                  href="tel:09842766090"
+                  href="tel:9842766090"
                   className="btn-shimmer text-white font-semibold py-3.5 rounded-2xl text-sm flex items-center justify-center gap-2"
                 >
                   <Phone className="w-4 h-4" />
-                  Call to Confirm: 098427 66090
+                  Call to Confirm: 98427 66090
                 </a>
                 <button
                   onClick={handleClose}
@@ -253,11 +253,11 @@ export default function BookingModal({ isOpen, onClose, preSelectedDept }) {
                   )}
                 </button>
                 <a
-                  href="tel:09842766090"
+                  href="tel:9842766090"
                   className="w-full flex items-center justify-center gap-2 border-2 border-slate-200 hover:border-teal-300 text-slate-600 hover:text-teal-600 font-semibold py-3.5 rounded-2xl text-sm transition-all"
                 >
                   <Phone className="w-4 h-4" />
-                  Or Call: 098427 66090
+                  Or Call: 98427 66090
                 </a>
               </div>
             </form>

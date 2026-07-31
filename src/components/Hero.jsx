@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { CalendarCheck, ChevronDown, ShieldCheck } from 'lucide-react'
 
-const CLINIC_NUMBER = 'tel:09842766090'
+const CLINIC_NUMBER = 'tel:9842766090'
 
 export default function Hero({ onBooking }) {
   const heroRef = useRef(null)

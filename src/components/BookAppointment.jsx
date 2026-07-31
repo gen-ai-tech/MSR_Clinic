@@ -144,7 +144,7 @@ export default function BookAppointment() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <a
-                        href="tel:09842766090"
+                        href="tel:9842766090"
                         className="btn-shimmer text-white font-semibold py-3.5 px-6 rounded-2xl text-sm flex items-center justify-center gap-2"
                       >
                         <Phone className="w-4 h-4" />

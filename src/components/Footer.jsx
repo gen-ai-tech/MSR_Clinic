@@ -1,4 +1,5 @@
-import { Cross, Phone, MapPin, MessageCircle, CalendarCheck, ArrowRight, Mail } from 'lucide-react'
+import { Phone, MapPin, MessageCircle, CalendarCheck, ArrowRight, Mail } from 'lucide-react'
+import logoImg from '../assets/logo.jpeg'
 
 const WA_URL = 'https://wa.me/919842766090?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment.'
 const MAPS_URL = 'https://www.google.com/maps/place/M.S.R+Clinic+-+Skin+%26+Venereal+Clinic%2FSexology+Clinic%2FAlcohol+De-Addiction+Centre%2FPsychiatrist+Clinic/@11.6634721,78.1449644,853m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3babf16b2517568f:0x5e6d0215e50b1f6f!8m2!3d11.6634721!4d78.1475393!16s%2Fg%2F11n153_ld9'
@@ -17,9 +18,11 @@ export default function Footer({ onBooking }) {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center shadow-lg">
-                <Cross className="w-5 h-5 text-white" strokeWidth={2.5} />
-              </div>
+              <img
+                src={logoImg}
+                alt="M.S.R Clinic Logo"
+                className="h-12 w-auto rounded-lg object-contain shadow-md"
+              />
               <div>
                 <div className="font-bold text-lg leading-tight">M.S.R Clinic</div>
                 <div className="text-teal-400 text-xs tracking-widest uppercase">Salem, Tamil Nadu</div>
@@ -36,11 +39,11 @@ export default function Footer({ onBooking }) {
             <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-3 text-slate-400 text-sm">
               {[
-                { label: 'Home',        href: '#hero' },
-                { label: 'About Us',    href: '#about' },
-                { label: 'Services',    href: '#services' },
+                { label: 'Home', href: '#hero' },
+                { label: 'About Us', href: '#about' },
+                { label: 'Services', href: '#services' },
                 { label: 'Appointment', href: '#appointment' },
-                { label: 'Location',    href: '#location' },
+                { label: 'Location', href: '#location' },
               ].map(({ label, href }) => (
                 <li key={href}>
                   <a
@@ -65,7 +68,7 @@ export default function Footer({ onBooking }) {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-teal-500 flex-shrink-0" />
-                <a href="tel:09842766090" className="hover:text-teal-400 transition-colors font-semibold">098427 66090</a>
+                <a href="tel:9842766090" className="hover:text-teal-400 transition-colors font-semibold">98427 66090</a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-teal-500 flex-shrink-0" />
@@ -108,7 +111,7 @@ export default function Footer({ onBooking }) {
       {/* Mobile sticky bottom bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#0F172A]/95 backdrop-blur-xl px-4 py-3 flex gap-2.5 shadow-2xl">
         <a
-          href="tel:09842766090"
+          href="tel:9842766090"
           className="flex-1 bg-sky-600 hover:bg-sky-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm transition-all active:scale-95"
         >
           <Phone className="w-4 h-4" />

@@ -48,7 +48,7 @@ const services = [
     icon: HeartHandshake,
     title: 'Sexology Clinic',
     tagline: 'Sexual Wellness',
-    description: 'Evidence-based sexual health consultations for both men and women — a safe, private space for sensitive concerns.',
+    description: 'Evidence-based sexual health consultations for both men and women - a safe, private space for sensitive concerns.',
     color: 'from-violet-500 to-purple-600',
     lightColor: 'from-violet-50 to-purple-50',
     borderColor: 'border-violet-200',
@@ -68,7 +68,7 @@ const services = [
     icon: Brain,
     title: 'Psychiatrist Clinic',
     tagline: 'Mental Wellness',
-    description: 'Holistic psychiatric care combining medication, therapy, and counseling — because mental health is health.',
+    description: 'Holistic psychiatric care combining medication, therapy, and counseling - because mental health is health.',
     color: 'from-teal-500 to-teal-700',
     lightColor: 'from-teal-50 to-cyan-50',
     borderColor: 'border-teal-200',
@@ -142,7 +142,7 @@ function ServiceCard({ service, onBooking, isActive, onHover, onLeave }) {
           ))}
         </div>
 
-        {/* CTA — always at bottom */}
+        {/* CTA - always at bottom */}
         <button
           onClick={() => onBooking(service.id)}
           className={`w-max mx-auto px-6 flex items-center justify-center gap-1.5 sm:gap-2 py-2.5 sm:py-3 rounded-2xl text-[11px] sm:text-sm font-semibold text-white bg-gradient-to-r ${service.color} shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200 mt-auto flex-shrink-0 whitespace-nowrap`}
@@ -173,11 +173,11 @@ export default function ServicesGrid({ onBooking }) {
             </span>
           </h2>
           <p className="text-slate-500 text-lg leading-relaxed">
-            Expert medical care across five critical specialties — always delivered with compassion, clinical excellence, and absolute discretion.
+            Expert medical care across five critical specialties - always delivered with compassion, clinical excellence, and absolute discretion.
           </p>
         </div>
 
-        {/* Cards Grid — 3 on top row, 2 centered on bottom */}
+        {/* Cards Grid - 3 on top row, 2 centered on bottom */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 items-stretch mb-3 sm:mb-6">
           {services.slice(0, 3).map((s) => (
             <ServiceCard

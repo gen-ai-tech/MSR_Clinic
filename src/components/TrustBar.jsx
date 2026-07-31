@@ -28,7 +28,7 @@ const badges = [
   {
     icon: Clock,
     title: 'Flexible Timings',
-    subtitle: 'Mon – Sat: 9am–1pm & 4pm–8pm',
+    subtitle: 'Mon - Sat: 9am-1pm & 4pm-8pm',
     color: 'from-sky-500/20 to-blue-600/10',
     border: 'border-sky-500/20',
     iconColor: 'text-sky-400',

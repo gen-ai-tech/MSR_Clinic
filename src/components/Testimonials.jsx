@@ -2,43 +2,45 @@ import { Quote } from 'lucide-react'
 
 const reviews = [
   {
-    initials: 'A',
-    dept: 'Sexology Consultation',
-    text: 'The most understanding doctor I have ever visited. My privacy concerns were addressed immediately and I felt completely at ease. The confidentiality here is real - I cannot recommend them enough.',
-    rating: 5,
-  },
-  {
-    initials: 'R',
-    name: 'Rajan M.',
-    dept: 'De-Addiction Programme',
-    text: 'My family member struggled with alcohol dependency for years. The doctor treated us with incredible dignity and the guidance was outstanding. The recovery programme was thorough.',
-    rating: 5,
-  },
-  {
-    initials: 'P',
-    name: 'Priya S.',
-    dept: 'Psychiatry & Mental Health',
-    text: 'I battled severe anxiety for two years before coming here. This clinic changed my life. The psychiatrist is extremely knowledgeable - it truly felt like a safe space to open up.',
-    rating: 5,
-  },
-  {
-    initials: 'K',
-    name: 'Karthi V.',
-    dept: 'Dermatology & Venereology',
-    text: 'Visited for a sensitive skin condition. The doctor was thorough, professional, and incredibly discreet. No awkward questions, no judgment. Will always return here.',
+    initials: 'B',
+    name: 'Bharathi Vidhya R',
+    dept: 'Clinic Visit',
+    text: 'Dr. S. Ramesh is incredible.For his excellent diagnosis, treatment, curiosity, investigative mind and ability to connect, I would highly recommend his clinic to anyone.',
     rating: 5,
   },
   {
     initials: 'S',
-    dept: 'Anonymous',
-    text: 'Finding a doctor who truly understood my needs was difficult until I found M.S.R Clinic. I was treated with such respect and warmth. This is genuinely a safe space.',
+    name: 'Sai Sahe',
+    dept: 'Consulting and Treatment',
+    text: 'I am first time visit the hospital my own experience is first visit best consulting and treatment , medicine best results',
     rating: 5,
   },
   {
-    initials: 'M',
-    name: 'Murugan T.',
-    dept: 'Sexology',
-    text: 'I had been suffering in silence for 3 years due to the stigma. Coming here was the best decision of my life. The doctor was so calm and professional. Issues resolved in just 2 visits.',
+    initials: 'P',
+    name: 'Priya 123',
+    dept: 'Hair Treatment',
+    text: 'Hiii, I took hair treatment in salem MSR CLINIC. Visible results in short period. Thank you Dr.Ramesh kanna sir.nice results',
+    rating: 5,
+  },
+  {
+    initials: 'A',
+    name: 'Ammu Ammu',
+    dept: 'Clinic Visit',
+    text: 'Very good clinic, doctor so humble and very kind person, clinic maintain very neet and clean, also treatment was so ',
+    rating: 5,
+  },
+  {
+    initials: 'P',
+    name: 'Poongodi Palanisamy',
+    dept: 'Skin Treatment',
+    text: 'I have undertaken treatment for skin. Really Very effective and feeling good. Thanks a lot sir',
+    rating: 5,
+  },
+  {
+    initials: 'B',
+    name: 'Bharathi Vidhya',
+    dept: 'Clinic Visit',
+    text: 'Dr. S. Ramesh is incredible.For his excellent diagnosis, treatment, curiosity, investigative mind and ability to connect, I would highly recommend his clinic to anyone.',
     rating: 5,
   },
 ]
@@ -76,7 +78,7 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Cards — 1 col mobile, 2 col tablet, 3 col desktop */}
+        {/* Cards - 1 col mobile, 2 col tablet, 3 col desktop */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
           {reviews.map(({ initials, name, dept, text, rating }, idx) => (
             <div
