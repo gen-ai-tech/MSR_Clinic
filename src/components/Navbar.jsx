@@ -6,8 +6,8 @@ const navLinks = [
   { label: 'Home', href: '#hero' },
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'Reviews', href: '#reviews' },
-  { label: 'Location', href: '#location' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Contact Us', href: '#appointment' },
 ]
 
 export default function Navbar({ onBooking }) {
@@ -17,7 +17,7 @@ export default function Navbar({ onBooking }) {
 
   // Track which section is in view for active-link highlighting
   useEffect(() => {
-    const sectionIds = ['hero', 'about', 'services', 'reviews', 'location']
+    const sectionIds = ['hero', 'about', 'services', 'gallery', 'appointment']
     const observers = sectionIds.map((id) => {
       const el = document.getElementById(id)
       if (!el) return null
@@ -45,7 +45,6 @@ export default function Navbar({ onBooking }) {
 
   const isActive = (href) => {
     const id = href.replace('#', '')
-    if (id === 'location') return activeSection === 'location'
     return activeSection === id
   }
 

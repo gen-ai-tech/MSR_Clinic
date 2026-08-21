@@ -74,69 +74,30 @@ export default function Footer({ onBooking }) {
                 <Mail className="w-4 h-4 text-teal-500 flex-shrink-0" />
                 <a href="mailto:rameshsakthivel68@gmail.com" className="hover:text-teal-400 transition-colors break-all">rameshsakthivel68@gmail.com</a>
               </div>
-              <div className="flex gap-3.5 pt-2">
-                <a
-                  href={WA_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-emerald-600 hover:scale-105 flex items-center justify-center text-slate-300 hover:text-white transition-all duration-300 shadow-lg border border-slate-700/50"
-                  title="WhatsApp Chat"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                </a>
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-sky-500 hover:scale-105 flex items-center justify-center text-slate-300 hover:text-white transition-all duration-300 shadow-lg border border-slate-700/50"
-                  title="Get Directions"
-                >
-                  <MapPin className="w-5 h-5" />
-                </a>
-              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
+      <div className="py-6 mt-4 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center gap-2">
           <p className="text-slate-500 text-xs">
             &copy; {year} M.S.R Clinic, Salem.
           </p>
+          <p className="text-slate-500 text-xs">
+            Powered by{' '}
+            <a 
+              href="https://genaitechnology.in/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-teal-500 hover:text-teal-400 font-semibold transition-colors"
+            >
+              Gen-AI Tech | IT Solutions Salem
+            </a>
+          </p>
         </div>
       </div>
-
-      {/* Mobile sticky bottom bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#0F172A]/95 backdrop-blur-xl px-4 py-3 flex gap-2.5 shadow-2xl">
-        <a
-          href="tel:9842766090"
-          className="flex-1 bg-sky-600 hover:bg-sky-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm transition-all active:scale-95"
-        >
-          <Phone className="w-4 h-4" />
-          Call
-        </a>
-        <button
-          onClick={() => onBooking()}
-          className="flex-1 btn-shimmer text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm active:scale-95"
-        >
-          <CalendarCheck className="w-4 h-4" />
-          Book
-        </button>
-        <a
-          href={WA_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm transition-all active:scale-95"
-        >
-          <MessageCircle className="w-4 h-4" />
-          Chat
-        </a>
-      </div>
-
-      {/* Bottom padding for mobile sticky bar */}
-      <div className="h-20 md:hidden" />
     </footer>
   )
 }

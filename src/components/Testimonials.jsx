@@ -78,36 +78,73 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Cards - 1 col mobile, 2 col tablet, 3 col desktop */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-          {reviews.map(({ initials, name, dept, text, rating }, idx) => (
-            <div
-              key={idx}
-              className="group bg-slate-50 hover:bg-white border border-slate-100 hover:border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-7 hover:shadow-xl hover:shadow-slate-100 transition-all duration-300 flex flex-col"
-            >
-              {/* Stars + quote */}
-              <div className="flex items-start gap-2 mb-3 sm:mb-4">
-                <Stars count={rating} />
-                <Quote className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300 ml-auto flex-shrink-0 mt-0.5" />
-              </div>
+        {/* Scrolling Cards */}
+        <div className="relative flex overflow-hidden group">
+          <div className="flex w-max animate-scroll group-hover:[animation-play-state:paused]">
+            {/* Set 1 */}
+            <div className="flex gap-4 sm:gap-6 px-2 sm:px-3">
+              {reviews.map(({ initials, name, dept, text, rating }, idx) => (
+                <div
+                  key={`set1-${idx}`}
+                  className="w-[280px] sm:w-[350px] shrink-0 bg-slate-50 hover:bg-white border border-slate-100 hover:border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-7 hover:shadow-xl hover:shadow-slate-100 transition-all duration-300 flex flex-col"
+                >
+                  {/* Stars + quote */}
+                  <div className="flex items-start gap-2 mb-3 sm:mb-4">
+                    <Stars count={rating} />
+                    <Quote className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300 ml-auto flex-shrink-0 mt-0.5" />
+                  </div>
 
-              {/* Review text */}
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed italic flex-1 mb-4 sm:mb-5">
-                &ldquo;{text}&rdquo;
-              </p>
+                  {/* Review text */}
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed italic flex-1 mb-4 sm:mb-5 whitespace-normal">
+                    &ldquo;{text}&rdquo;
+                  </p>
 
-              {/* Author */}
-              <div className="flex items-center gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-slate-100">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center text-white font-bold text-xs sm:text-sm flex-shrink-0">
-                  {initials}
+                  {/* Author */}
+                  <div className="flex items-center gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-slate-100">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center text-white font-bold text-xs sm:text-sm flex-shrink-0">
+                      {initials}
+                    </div>
+                    <div>
+                      <div className="text-[#1E293B] text-xs sm:text-sm font-semibold">{name || 'Anonymous Patient'}</div>
+                      <div className="text-slate-400 text-[10px] sm:text-xs">{dept}</div>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-[#1E293B] text-xs sm:text-sm font-semibold">{name || 'Anonymous Patient'}</div>
-                  <div className="text-slate-400 text-[10px] sm:text-xs">{dept}</div>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+
+            {/* Set 2 */}
+            <div className="flex gap-4 sm:gap-6 px-2 sm:px-3">
+              {reviews.map(({ initials, name, dept, text, rating }, idx) => (
+                <div
+                  key={`set2-${idx}`}
+                  className="w-[280px] sm:w-[350px] shrink-0 bg-slate-50 hover:bg-white border border-slate-100 hover:border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-7 hover:shadow-xl hover:shadow-slate-100 transition-all duration-300 flex flex-col"
+                >
+                  {/* Stars + quote */}
+                  <div className="flex items-start gap-2 mb-3 sm:mb-4">
+                    <Stars count={rating} />
+                    <Quote className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300 ml-auto flex-shrink-0 mt-0.5" />
+                  </div>
+
+                  {/* Review text */}
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed italic flex-1 mb-4 sm:mb-5 whitespace-normal">
+                    &ldquo;{text}&rdquo;
+                  </p>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-slate-100">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center text-white font-bold text-xs sm:text-sm flex-shrink-0">
+                      {initials}
+                    </div>
+                    <div>
+                      <div className="text-[#1E293B] text-xs sm:text-sm font-semibold">{name || 'Anonymous Patient'}</div>
+                      <div className="text-slate-400 text-[10px] sm:text-xs">{dept}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
       </div>

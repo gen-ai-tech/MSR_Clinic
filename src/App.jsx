@@ -3,9 +3,11 @@ import Hero from './components/Hero'
 import TrustBar from './components/TrustBar'
 import ServicesGrid from './components/ServicesGrid'
 import PrivacyTrust from './components/PrivacyTrust'
+import CommitmentBanner from './components/CommitmentBanner'
+import ConditionsTreated from './components/ConditionsTreated'
 import BookAppointment from './components/BookAppointment'
 import Testimonials from './components/Testimonials'
-import LocationSection from './components/LocationSection'
+import Gallery from './components/Gallery'
 import Footer from './components/Footer'
 import FloatingActions from './components/FloatingActions'
 
@@ -36,17 +38,18 @@ export default function App() {
         <ServicesGrid onBooking={openBooking} />
       </section>
 
-      <section id="reviews">
-        <Testimonials />
-      </section>
+      <ConditionsTreated />
+
+      <CommitmentBanner />
+
+      <Gallery />
+
+      <Testimonials />
 
       <section id="appointment">
         <BookAppointment />
       </section>
 
-      <section id="location">
-        <LocationSection onBooking={openBooking} />
-      </section>
 
       <Footer onBooking={openBooking} />
 
