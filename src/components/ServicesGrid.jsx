@@ -14,7 +14,7 @@ const services = [
   },
   {
     id: 'venereal-disease',
-    image: 'src/assets/venerealdisease.png',
+    image: '/images/std_clinic.jpg',
     title: 'Venereal Disease Clinic',
     tagline: 'Confidential STD Care',
     description: 'Discreet, professional diagnosis and treatment of sexually transmitted infections in a safe, judgment free environment.',
@@ -32,7 +32,7 @@ const services = [
   },
   {
     id: 'psychiatry',
-    image: 'src/assets/psychiatrist.png',
+    image: '/images/psychiatry.jpg',
     title: 'Psychiatrist Clinic',
     tagline: 'Mental Wellness',
     description: 'Holistic psychiatric care combining medication, therapy, and counseling, because mental health is health.',
@@ -41,7 +41,7 @@ const services = [
   },
   {
     id: 'deaddiction',
-    image: 'src/assets/deaddiction.png',
+    image: '/images/deaddiction.jpg',
     title: 'Alcohol De-Addiction',
     tagline: 'Recovery & Rehab',
     description: 'Medically supervised recovery programmes treating addiction with compassion, dignity and evidence based support.',
